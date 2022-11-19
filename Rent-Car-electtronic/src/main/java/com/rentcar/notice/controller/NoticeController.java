@@ -14,8 +14,8 @@ import com.rentcar.notice.model.UploadNotice;
 import com.rentcar.notice.service.NoticeService;
 import com.rentcar.utility.Ncloud.AwsS3;
 import com.rentcar.utility.Ncloud.AwsS3Config;
-import com.rentcar.utility.Ncloud.service.AwsS3Service;
 import com.rentcar.utility.Utility;
+import com.rentcar.utility.aws.service.AwsS3Service;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -46,9 +46,22 @@ public class NoticeController {
     @Qualifier("com.rentcar.notice.service.NoticeServiceImpl")
     private NoticeService service;
 
-    private final AwsS3Service awsS3Service;
+  // private final AwsS3Service awsS3Service;
     private final AmazonS3 amazonS3;
     private final AwsS3Config s3;
+
+    /*아마존 S3로 적용하는 부분*/
+    @Autowired
+    @Qualifier("com.rentcar.utility.aws.service.AwsS3Service")
+    private final AwsS3Service awsS3Service;
+
+    @Value("${region}")
+    private String region;
+
+    @Value("${bucketName}")
+    private  String bucketName;
+
+//적용 부분 끝
 
     private static final Logger log = LoggerFactory.getLogger(NoticeController.class);
 
@@ -233,6 +246,12 @@ public class NoticeController {
             dto.setKey((String) S3.getKey());
 
         }
+
+        //aws s3 적용 부분
+
+        awsS3Service.saveFile(multipartFile);
+
+        //적용 끝, 바로 버켓에 들어가면 나중에 혼잡해질것 같아서 버켓내 디렉토리안에 저장하는 방법을 찾아야함
 
         if (service.create(dto) > 0) {
             return "/user/notice/list";
