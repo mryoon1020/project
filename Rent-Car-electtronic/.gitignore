@@ -13,6 +13,7 @@
 *.iws
 *.iml
 *.ipr
+*.properties
 out/
 !src/main/main/**/out/
 !**/src/test/**/out/
