@@ -18,6 +18,9 @@
 
 ## API
 
+**`/user` 유저 권한**
+**`/admin` 관리자 권한**
+
 > **Booking**
 
 - 차량예약 `POST /user/booking/create`
@@ -30,73 +33,92 @@
 
 >**CarInfo**
 
-- `GET /admin/carinfo/mapupdate/{carnumber}`
-- `POST /carinfo/mapupdate`
-- `GET /admin/carinfo/optupdate/{carnumber}`
-- `GET /admin/carinfo/optupdate/{carnumber}`
-- `GET /admin/carinfo/updateFile/{carnumber}`
-- `GET /admin/carinfo/updateFile/{carnumber}`
-- `GET /admin/carinfo/delete/{carnumber}`
-- `GET /carinfo/update`
-- `POST /admin/carinfo/update/{carnumber}`
-- `GET /user/carinfo/read/{carnumber}`
-- `POST /carinfo/create`
-- `GET /carinfo/create`
-- `GET /carinfo/list`
-- 
+- 차량위치정보 조회 `GET /admin/carinfo/mapupdate/{carnumber}`
+-  차량위치정보 저장`POST /carinfo/mapupdate`
+- 차량옵션 수정 양식 `GET /admin/carinfo/optupdate/{carnumber}`
+- 차량옵션 수정 `POST /admin/carinfo/optupdate/{carnumber}`
+- 차량옵션 이미지 저장 양식`GET /admin/carinfo/updateFile/{carnumber}`
+- 차량옵션 이미지 저장`POST /admin/carinfo/updateFile/{carnumber}`
+- 차량정보 삭제 `GET /admin/carinfo/delete/{carnumber}`
+- 차량정보 수정양식 `GET /carinfo/update`
+- 차량정보 수정 `POST /admin/carinfo/update/{carnumber}`
+- 차량정보 조회 `GET /user/carinfo/read/{carnumber}`
+- 차량정보 등록 `POST /carinfo/create`
+- 차량정보 등록 양식 `GET /carinfo/create`
+- 차량정보 리스트 `GET /carinfo/list`
 
 >**Kakao**
 
-- `GET /kakao_url/{lng}/{lat}`
-- `GET /facilities/{lng}/{lat}`
-- `POST /facilities/create`
+- Kakao map API 위치정보 조회 `GET /kakao_url/{lng}/{lat}`
+- 편의시설 위치정보 조회 `GET /facilities/{lng}/{lat}`
+- 편의시설 위치정보 저장 `POST /facilities/create`
 
 > **List(자유게시판)**
 
-- `POST /user/contents/list/delete`
-- `GET /user/contents/list/update`
-- `POST /user/contents/list/update`
-- `POST /user/contents /list/{listno}`
-- `GET /user/contents/list/read`
-- `GET /user/contents/list/create`
-- `POST /user/contents/list/create`
-- `GET /user/contents/list`
+- 글삭제 `POST /user/contents/list/delete`
+- 글 수정양식 `GET /user/contents/list/update`
+- 글 수정 `POST /user/contents/list/update`
+- 글 목록 `POST /user/contents /list/{listno}`
+- 글 조회 `GET /user/contents/list/read`
+- 글 생성양식 `GET /user/contents/list/create`
+- 글 생성 `POST /user/contents/list/create`
+- 글 조회 `GET /user/contents/list`
 
 > **Log in**
 
-- `POST /exception/user/delete`
-- `GET /exception/user/delete`
-- `GET /exception/admin/user/read`
-- `GET /exception/admin/user/list`
-- `POST /exception/user/update`
-- `GET/exception/user/update`
-- `GET /exception/lic`
-- `GET /exception/user/pwfind`
-- `GET /exception/user/idfind`
-- `POST /exception/user/create`
-- `POST /exception/user/createForm`
-- `GET /exception/user/agree`
-- `GET /exception/user/logout`
-- `POST/exception/user/login`
-- `GET /exception/user/login`
+- 회원탈퇴 `POST /exception/user/delete`
+-  회원탈퇴 양식`GET /exception/user/delete`
+- 회원정보 `GET /exception/admin/user/read`
+- 회원목록 `GET /exception/admin/user/list`
+- 회원정보 수정 `POST /exception/user/update`
+- 회원정보 수정 양식`GET/exception/user/update`
+- 운전명허증 정보 조회 `GET /exception/lic`
+- 비밀번호 찾기 `GET /exception/user/pwfind`
+- 아이디 찾기 `GET /exception/user/idfind`
+- 회원가입 `POST /exception/user/create`
+- 회원가입 양식 `POST /exception/user/createForm`
+- 이용약관 가져오기 `GET /exception/user/agree`
+- 로그아웃 `GET /exception/user/logout`
+- 로그인 `POST/exception/user/login`
+- 로그인 양식 `GET /exception/user/login`
+- 운전명허증 정보 등록 `POST /license`
+- 비밀번호 찾기 `GET /user/pwfindex`
+- 아이디 찾기 `GET /user/idfindex`
+- 이메일주소 조회 `GET /user/emailcheck`
+- 중복아이디 확인 `GET /user/idcheck`
 
 >**Notice**
 
-- `GET /`
-- `GET /notice/fileDown`
-- `POST /admin/notice/deletefile`
-- `GET /admin/notice/update`
-- `POST /admin/notice/update`
-- `POST /admin/notice/delete`
-- `GET /admin/notice/delete`
-- `GET /admin/notice/create`
-- `POST /admin/notice/create`
-- `GET /notice/read`
-- `GET /notice/list`
+- Main화면 `GET /`
+- 파일 다운로드 `GET /notice/fileDown`
+- 파일 삭제 `POST /admin/notice/deletefile`
+- 공지수정 양식 `GET /admin/notice/update`
+- 공지수정 `POST /admin/notice/update`
+- 공지삭제 `POST /admin/notice/delete`
+- 공지삭제 양식 `GET /admin/notice/delete`
+- 공지생성 양식`GET /admin/notice/create`
+- 공지생성 `POST /admin/notice/create`
+- 공지조회 `GET /notice/read`
+- 공지목록 `GET /notice/list`
+
+> **Review**
+
+- 후기 목록 `GET /review/list/{listno}/{sno}/{eno}`
+- 후기 목록 페이징 `GET /review/page`
+- 후기 작성 `POST /review/create`
+- 후기 조회 `GET /review/{rnum}`
+- 후기 수정 `PUT /review/{rnum}`
+- 후기 삭제 `DELETE /review/{rnum}`
+- 후기 목록 `POST /list/{listno}`
 
 > **Support**
 
-
+- 지원서비스 요청양식 `GET /user/request/create`
+- 지원 서비스차량 조회 `GET /user/request/supporter`
+- 지원 서비스 요청  `POST /user/request/help`
+- 지원요청 수락 `GET /user/request/help/accept`
+- 지원요청 삭제 `GET /user/request/help/delete/{carnum}`
+- 지원 요정 완료 `GET /user/request/help/complete/{carnum}`
 
 ## Service process
 

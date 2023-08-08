@@ -84,7 +84,7 @@ public class ReviewController {
         return new ResponseEntity<>(service.read(rnum), HttpStatus.OK);
     }
 
-    @PutMapping("/review/")
+    @PutMapping("/review/{rnum}")
     public ResponseEntity<String> modify(@RequestBody ReviewDTO vo) {
 
         log.info("modify: " + vo);
