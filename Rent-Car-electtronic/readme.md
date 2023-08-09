@@ -103,13 +103,13 @@
 
 > **Review**
 
-- 후기 목록 `GET /review/list/{listno}/{sno}/{eno}`
-- 후기 목록 페이징 `GET /review/page`
-- 후기 작성 `POST /review/create`
-- 후기 조회 `GET /review/{rnum}`
-- 후기 수정 `PUT /review/{rnum}`
-- 후기 삭제 `DELETE /review/{rnum}`
-- 후기 목록 `POST /list/{listno}`
+- 댓글 목록 `GET /review/list/{listno}/{sno}/{eno}`
+- 댓글 목록 페이징 `GET /review/page`
+- 댓글 작성 `POST /review/create`
+- 댓글 조회 `GET /review/{rnum}`
+- 댓글 수정 `PUT /review/{rnum}`
+- 댓글삭제 `DELETE /review/{rnum}`
+- 댓글 목록 `POST /list/{listno}`
 
 > **Support**
 
@@ -121,9 +121,14 @@
 - 지원 요정 완료 `GET /user/request/help/complete/{carnum}`
 
 ## Service process
+- 기본적인 API 호출 및 응답 과정입니다
+
+![](./img/EV-rent car.png)
+
+- 관리자 권한 및 일반 유저 권한 확인 프로세스
 
 
 
 ## ERD
 
-![ev_rent_car_ERD](D:\Github_upload\project\Rent-Car-electtronic\img\ev_rent_car_ERD.png)
+![](./img/ev_rent_car_ERD.png)
