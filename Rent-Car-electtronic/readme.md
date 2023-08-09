@@ -121,11 +121,13 @@
 - 지원 요정 완료 `GET /user/request/help/complete/{carnum}`
 
 ## Service process
-- 기본적인 API 호출 및 응답 과정입니다
+- API 호출 및 응답 과정입니다
 
-![](./img/EV-rent car.png)
+![](./img/ev_rent_car_process.png)
 
 - 관리자 권한 및 일반 유저 권한 확인 프로세스
+
+
 
 
 
